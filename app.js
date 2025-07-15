@@ -6,7 +6,9 @@ const noticiasRoutes = require('../backend/src/router/noticias.Routes');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://chicharitos-web.onrender.com'
+}));
 app.use(express.json());
 
 // Rutas
