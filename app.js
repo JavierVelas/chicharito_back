@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-const authRoutes = require('../backend/src/router/auth.Routes');
+const authRoutes = require('./src/router/auth.Routes');
 
-const noticiasRoutes = require('../backend/src/router/noticias.Routes');
+const noticiasRoutes = require('./src/router/noticias.Routes');
 
 const app = express();
 
