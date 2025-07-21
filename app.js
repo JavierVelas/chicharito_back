@@ -53,8 +53,9 @@ app.use('/api/noticias', noticiasRoutes);
 // Manejo de rutas no encontradas (DEBE IR AL FINAL)
 app.use((req, res) => {
   res.status(404).json({ 
-    error: 'Ruta no encontrada',
-    rutas_validas: ['/api/auth/login', '/api/noticias'] // Personaliza con tus rutas
+    error: 'Endpoint no encontrado',
+    rutas_validas: ['/api/auth/login', '/api/noticias'],
+    documentación: 'https://github.com/JavierVelas/chicharito_back'
   });
 });
 
