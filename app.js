@@ -7,11 +7,22 @@ const noticiasRoutes = require('./src/router/noticias.Routes');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
+
+
+
+
 const app = express();
 
 // --- Middlewares de seguridad (insertados sin modificar lo existente) ---
 app.use(helmet()); // Protección básica de headers
 app.use(morgan('dev')); // Logs de solicitudes (solo en desarrollo)
+
+
+// 2. Configuración específica para Render (¡aquí va tu línea!)
+process.env.BASE_URL = process.env.BASE_URL || `https://${process.env.RENDER_SERVICE_NAME}.onrender.com`;
+
+
+
 
 const corsOptions = {
   origin: [
