@@ -50,4 +50,12 @@ process.removeAllListeners('warning');
 app.use('/api/auth', authRoutes);
 app.use('/api/noticias', noticiasRoutes);
 
+// Manejo de rutas no encontradas (DEBE IR AL FINAL)
+app.use((req, res) => {
+  res.status(404).json({ 
+    error: 'Ruta no encontrada',
+    rutas_validas: ['/api/auth/login', '/api/noticias'] // Personaliza con tus rutas
+  });
+});
+
 module.exports = app;
