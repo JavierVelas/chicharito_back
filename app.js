@@ -50,12 +50,15 @@ process.removeAllListeners('warning');
 app.use('/api/auth', authRoutes);
 app.use('/api/noticias', noticiasRoutes);
 
-// Manejo de rutas no encontradas (DEBE IR AL FINAL)
-app.use((req, res) => {
-  res.status(404).json({ 
-    error: 'Endpoint no encontrado',
-    rutas_validas: ['/api/auth/login', '/api/noticias'],
-    documentación: 'https://github.com/JavierVelas/chicharito_back'
+// Antes de las rutas 404, agrega:
+app.get('/', (req, res) => {
+  res.json({
+    message: "Bienvenido a la API de Chicharitos",
+    endpoints: {
+      auth: "/api/auth",
+      noticias: "/api/noticias",
+      healthcheck: "/api/healthcheck"
+    }
   });
 });
 
