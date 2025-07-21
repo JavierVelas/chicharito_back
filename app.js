@@ -18,7 +18,7 @@ app.use(helmet()); // Protección básica de headers
 app.use(morgan('dev')); // Logs de solicitudes (solo en desarrollo)
 
 
-// 2. Configuración específica para Render (¡aquí va tu línea!)
+
 process.env.BASE_URL = process.env.BASE_URL || `https://${process.env.RENDER_SERVICE_NAME}.onrender.com`;
 
 
