@@ -23,10 +23,11 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// --- Ruta de verificación de salud (nueva pero discreta) ---
-app.get('/health', (req, res) => {
-    res.status(200).send('OK');
+app.get('/api/healthcheck', (req, res) => {
+  res.status(200).json({ status: 'OK' });
 });
+
+process.removeAllListeners('warning');
 
 // --- TUS RUTAS ORIGINALES (preservadas al 100%) ---
 app.use('/api/auth', authRoutes);
