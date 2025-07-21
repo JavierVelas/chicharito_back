@@ -23,8 +23,13 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Ruta de prueba OBLIGATORIA
 app.get('/api/healthcheck', (req, res) => {
-  res.status(200).json({ status: 'OK' });
+  res.status(200).json({ 
+    status: 'OK',
+    environment: process.env.NODE_ENV,
+    baseUrl: process.env.BASE_URL 
+  });
 });
 
 process.removeAllListeners('warning');
