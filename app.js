@@ -16,8 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // --- Middlewares de seguridad (insertados sin modificar lo existente) ---
 app.use(helmet()); // Protección básica de headers
-app.use(morgan('dev')); // Logs de solicitudes (solo en desarrollo)
-
+app.use(morgan('dev')); 
 
 
 process.env.BASE_URL = process.env.BASE_URL || `https://${process.env.RENDER_SERVICE_NAME}.onrender.com`;
@@ -41,7 +40,7 @@ pool.query('SELECT NOW()')
     process.exit(1);
   });
 
-  
+
 // Ruta de prueba OBLIGATORIA
 app.get('/api/healthcheck', (req, res) => {
   res.status(200).json({ 
