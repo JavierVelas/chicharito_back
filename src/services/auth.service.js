@@ -3,7 +3,7 @@ const crypto = require('crypto');
 
 async function login(usuario, clave) {
   return new Promise((resolve, reject) => {
-    // 1. Primero busca solo por usuario
+  
     pool.query(
       'SELECT * FROM usuarios WHERE usuario = ? LIMIT 1',
       [usuario],
