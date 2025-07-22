@@ -50,6 +50,17 @@ app.get('/api/healthcheck', (req, res) => {
   });
 });
 
+async function testConnection() {
+  try {
+    const res = await pool.query('SELECT NOW()');
+    console.log('Conexión exitosa. Hora actual:', res.rows[0].now);
+  } catch (err) {
+    console.error('Error de conexión:', err);
+  }
+}
+
+testConnection();
+
 process.removeAllListeners('warning');
 
 
