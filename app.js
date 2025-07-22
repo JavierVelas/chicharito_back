@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-const authRoutes = require('./src/router/auth.Routes');
+const authRoutes = require('../backend/src/router/auth.Routes');
 require('dotenv').config();
-const noticiasRoutes = require('./src/router/noticias.Routes');
+const noticiasRoutes = require('../backend/src/router/noticias.Routes');
 
 const helmet = require('helmet');
 const morgan = require('morgan');
@@ -31,7 +31,7 @@ const corsOptions = {
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true // Si usas cookies/sesión
+  credentials: true //cokies
 };
 app.use(cors(corsOptions));
 
@@ -55,9 +55,9 @@ app.get('/', (req, res) => {
   res.json({
     message: "Bienvenido a la API de Chicharitos",
     endpoints: {
-      auth: "/api/auth",
-      noticias: "/api/noticias",
-      healthcheck: "/api/healthcheck"
+      auth: "api/auth",
+      noticias: "api/noticias",
+      healthcheck: "api/healthcheck"
     }
   });
 });

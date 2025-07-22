@@ -1,6 +1,12 @@
 const app = require('./app');
 
-const PORT = process.env.PORT || 5432;
-app.listen(PORT, '0.0.0.0', () => {  // <- Cambia crucial
-  console.log(`Servidor corriendo en ${process.env.BASE_URL || `http://localhost:${PORT}`}`);
-});
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+// Configuración base URL dinámica
+const BASE_URL = isProduction 
+  ? 'https://chicharito-back.onrender.com' 
+  : 'http://localhost:3000';
+
+console.log(`✅ Server running in ${isProduction ? 'PRODUCTION' : 'DEVELOPMENT'} mode`);
+console.log(`🌐 Base URL: ${BASE_URL}`);
