@@ -1,12 +1,12 @@
 const app = require('./app');
 
 
-const isProduction = process.env.NODE_ENV === 'production';
+// En tu app.js o server.js
+const PORT = process.env.PORT || 5432; // Render asigna su propio puerto
 
-// Configuración base URL dinámica
-const BASE_URL = isProduction 
-  ? 'https://chicharito-back.onrender.com' 
-  : 'http://localhost:3000';
+app.listen(PORT, '0.0.0.0', () => { // '0.0.0.0' es crucial para Render
+  console.log(`Servidor corriendo en puerto ${PORT}`);
+});
 
 console.log(`✅ Server running in ${isProduction ? 'PRODUCTION' : 'DEVELOPMENT'} mode`);
 console.log(`🌐 Base URL: ${BASE_URL}`);
