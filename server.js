@@ -1,5 +1,6 @@
+require('dotenv').config();
 const app = require('./app');
-
+const isProduction = process.env.NODE_ENV === 'production';
 
 // En tu app.js o server.js
 const PORT = process.env.PORT || 5432; // Render asigna su propio puerto
