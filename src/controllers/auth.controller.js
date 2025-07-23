@@ -63,11 +63,10 @@ exports.login = async (req, res) => {
     });
     
   } catch (error) {
-    logger.error(`Error en login: ${error.message}`);
+    console.error('Error completo en login:', error);
     res.status(500).json({ 
-      error: "Error en el servidor",
-      code: "ERROR_SERVIDOR",
-      detalle: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: 'Error interno del servidor',
+      detalle: process.env.NODE_ENV === 'production' ? undefined : error.message
     });
   }
 };
