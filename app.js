@@ -87,5 +87,11 @@ app.get('/', (req, res) => {
   });
 });
 
+const crypto = require('crypto');
+const clave = "chicharitos2000asd";
+
+const hash = crypto.createHash('sha256').update(clave).digest('hex');
+console.log(hash);
+
 
 module.exports = app;
