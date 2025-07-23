@@ -1,4 +1,4 @@
-const { pool } = require('../database');
+const  pool  = require('../database');
 const crypto = require('crypto');
 
 async function login(usuario, clave) {

@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(helmet()); // Protección básica de headers
 app.use(morgan('dev')); 
 
-
+console.log('Pool importado correctamente?', !!pool.query);
 process.env.BASE_URL = process.env.BASE_URL || `https://${process.env.RENDER_SERVICE_NAME}.onrender.com`;
 
 
