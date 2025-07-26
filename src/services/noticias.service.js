@@ -1,4 +1,4 @@
-const pool = require('../database');
+const  pool  = require('../database');
 
 // Obtener todas las noticias
 exports.obtenerNoticias = async () => {
@@ -35,8 +35,8 @@ exports.obtenerNoticiaPorId = async (id) => {
   }
 }
 
-// Crear una noticia SIN id_user
-exports.crearNoticia = async (titulo, info, fecha, url_imagen) => {
+// Crear una noticia
+exports.crearNoticia = async (titulo, info, fecha,  url_imagen) => {
   const crear = [titulo, info, fecha, url_imagen];
   return new Promise((resolve, reject) => {
     pool.query(
@@ -50,12 +50,12 @@ exports.crearNoticia = async (titulo, info, fecha, url_imagen) => {
   });
 };
 
-// Actualizar una noticia SIN id_user
+// Actualizar una noticia
 exports.actualizarNoticia = async (titulo, info, fecha, url_imagen, id) => {
   return new Promise((resolve, reject) => {
     const datos = [titulo, info, fecha, url_imagen, id];
     pool.query(
-      'UPDATE noticias SET titulo = $1, info = $2, fecha = $3, url_imagen = $4 WHERE id = $5',
+      'UPDATE noticias SET titulo = $1, info = $2, fecha = $3 = $4, url_imagen = $4 WHERE id = $5',
       datos,
       (err, results) => {
         if (err) return reject({ status: 500, message: 'Ocurrió un error al intentar modificar esta noticia', error: err });
