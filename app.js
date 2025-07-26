@@ -72,11 +72,5 @@ app.use((err, req, res, next) => {
 
 
 
-const crypto = require('crypto');
-
-
-const hash = crypto.createHash('sha256').update(clave).digest('hex');
-console.log(hash);
-
 
 module.exports = app;
